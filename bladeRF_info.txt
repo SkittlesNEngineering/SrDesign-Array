@@ -1,0 +1,65 @@
+bladeRF> print
+
+  RX1 Bandwidth:  18000000 Hz (Range: [200000, 56000000])
+  RX2 Bandwidth:  18000000 Hz (Range: [200000, 56000000])
+  TX1 Bandwidth:  18000000 Hz (Range: [200000, 56000000])
+  TX2 Bandwidth:  18000000 Hz (Range: [200000, 56000000])
+
+  RX1 Frequency: 2400000000 Hz (Range: [70000000, 6000000000])
+  RX2 Frequency: 2400000000 Hz (Range: [70000000, 6000000000])
+  TX1 Frequency: 2400000000 Hz (Range: [47000000, 6000000000])
+  TX2 Frequency: 2400000000 Hz (Range: [47000000, 6000000000])
+
+  Tuning Mode: Host
+
+  RX1 AGC: Enabled
+  RX2 AGC: Enabled
+
+  Clock reference: none
+  Clock input:     Onboard VCTCXO
+  Clock output:    Disabled
+
+  RX1 RSSI: preamble = 0 dB, symbol = -52 dB
+  RX2 RSSI: preamble = 0 dB, symbol = -51 dB
+C:\Users\mejo1>
+  Loopback mode: none
+
+  RX mux: BASEBAND - Baseband samples
+
+  RX FIR Filter: normal (default)
+  TX FIR Filter: bypass (default)
+
+  Gain RX1 overall:   60 dB (Range: [-15, 60])
+              full:   71 dB (Range: [-4, 71])
+  Gain RX2 overall:   60 dB (Range: [-15, 60])
+              full:   71 dB (Range: [-4, 71])
+  Gain TX1 overall:   56 dB (Range: [-23.75, 66])
+               dsa:  -90 dB (Range: [-89.75, 0])
+  Gain TX2 overall:   56 dB (Range: [-23.75, 66])
+               dsa:  -90 dB (Range: [-89.75, 0])
+
+  RX1 sample rate: 30720000 0/1 (Range: [520834, 61440000])
+  RX2 sample rate: 30720000 0/1 (Range: [520834, 61440000])
+  TX1 sample rate: 30720000 0/1 (Range: [520834, 61440000])
+  TX2 sample rate: 30720000 0/1 (Range: [520834, 61440000])
+
+  Bias Tee (RX1): off
+  Bias Tee (RX2): off
+  Bias Tee (TX1): off
+  Bias Tee (TX2): off
+
+  Current VCTCXO trim: 0x19cb
+  Stored VCTCXO trim:  0x19cb
+
+  Hardware status:
+    RFIC status:
+      Tuning Mode:  Host
+      Temperature:  29.8 degrees C
+      CTRL_OUT:     0xf8 (0x035=0x00, 0x036=0xff)
+    Power source:   USB Bus
+    Power monitor:  4.84 V, 0.57 A, 2.76 W
+    RF routing:
+      RX1: RFIC 0x0 (A_BAL  ) <= SW 0x0 (OPEN   )
+      RX2: RFIC 0x0 (A_BAL  ) <= SW 0x0 (OPEN   )
+      TX1: RFIC 0x0 (TXA    ) => SW 0x0 (OPEN   )
+      TX2: RFIC 0x0 (TXA    ) => SW 0x0 (OPEN   )
