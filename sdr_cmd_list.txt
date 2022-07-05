@@ -1,0 +1,6 @@
+set frequency tx 2400M
+set frequency rx 2400M
+set samplerate tx 30M
+set samplerate rx 30M
+tx config channel=1 file=PATH/sine_sig.csv format=csv repeat=6 timeout=60s
+rx config 
