@@ -1,10 +1,12 @@
 # Sets up SDR in loopback mode to transmit a preloaded csv signal to RX and write rcvd signal to csv.
 # This list of commands must be entered in this order.
-# Will be used in bladeRF-cli
-set loopback rfic_bist
+# Will be used in the terminal with bladeRF
+set loopback firmware
 set frequency tx 2400M
 set frequency rx 2400M
 set samplerate tx 30M
 set samplerate rx 30M
 tx config channel=1 file=PATH/sine_sig.csv format=csv repeat=6 timeout=60s
-rx config 
+rx config file=PATH/rcvd_sig.csv format=csv n=6000000 timeout=60s
+rx start
+tx start
