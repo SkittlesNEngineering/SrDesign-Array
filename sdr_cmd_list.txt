@@ -1,3 +1,4 @@
+set loopback rfic_bist
 set frequency tx 2400M
 set frequency rx 2400M
 set samplerate tx 30M
