@@ -1,0 +1,17 @@
+# this is the file to run for the example loopback
+# set up device params for example
+
+set frequency 925M
+set samplerate 2M
+set bandwidth 1.5M
+set loopback firmware
+
+# configure tx and rx channels
+tx config file=C:/SDR/example_samples.sc16q11 format=bin timeout=10s repeat=0
+rx config file=C:/SDR/rcvd_exmpl_sig.sc16q11 format=bin n=2M timeout=10s
+
+# start running the channels
+# rx start; 
+# tx start
+
+# run "rx start; tx start" in the console to run both at the same time (idk now)

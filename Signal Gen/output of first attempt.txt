@@ -1,0 +1,46 @@
+C:\Users\m85st\Documents\SD2 Project\SrDesign-Array\Signal Gen>bladeRF-cli -s sdr_expl_run.txt -i
+
+For best results, it is not recommended to set both RX and TX to the
+same frequency. Instead, consider offsetting them by at least 1 MHz
+and mixing digitally.
+
+For the above reason, 'set frequency <value>` is deprecated and
+scheduled for removal in future bladeRF-cli versions.
+
+Please use 'set frequency rx' and 'set frequency tx' to configure
+channels individually.
+
+  RX1 Frequency:  924999998 Hz (Range: [70000000, 6000000000])
+  RX2 Frequency:  924999998 Hz (Range: [70000000, 6000000000])
+  TX1 Frequency:  924999998 Hz (Range: [47000000, 6000000000])
+  TX2 Frequency:  924999998 Hz (Range: [47000000, 6000000000])
+
+
+  Setting RX1 sample rate - req:   2000000 0/1Hz, actual:   2000000 0/1Hz
+  Setting RX2 sample rate - req:   2000000 0/1Hz, actual:   2000000 0/1Hz
+  Setting TX1 sample rate - req:   2000000 0/1Hz, actual:   2000000 0/1Hz
+  Setting TX2 sample rate - req:   2000000 0/1Hz, actual:   2000000 0/1Hz
+
+
+  RX1 Bandwidth:   1500000 Hz (Range: [200000, 56000000])
+  RX2 Bandwidth:   1500000 Hz (Range: [200000, 56000000])
+  TX1 Bandwidth:   1500000 Hz (Range: [200000, 56000000])
+  TX2 Bandwidth:   1500000 Hz (Range: [200000, 56000000])
+
+
+  Loopback mode: firmware
+
+bladeRF> [ERROR @ host/libraries/libbladeRF/src/streaming/sync.c:337] wait_for_buffer: Timed out waiting for buf_ready after 1000 ms
+[ERROR @ host/libraries/libbladeRF/src/streaming/sync.c:337] wait_for_buffer: Timed out waiting for buf_ready after 1000 ms
+[ERROR @ host/libraries/libbladeRF/src/streaming/sync.c:337] wait_for_buffer: Timed out waiting for buf_ready after 1000 ms
+[ERROR @ host/libraries/libbladeRF/src/streaming/sync.c:337] wait_for_buffer: Timed out waiting for buf_ready after 1000 ms
+[ERROR @ host/libraries/libbladeRF/src/streaming/sync.c:337] wait_for_buffer: Timed out waiting for buf_ready after 1000 ms
+[ERROR @ host/libraries/libbladeRF/src/streaming/sync.c:337] wait_for_buffer: Timed out waiting for buf_ready after 1000 ms
+[ERROR @ host/libraries/libbladeRF/src/streaming/sync.c:337] wait_for_buffer: Timed out waiting for buf_ready after 1000 ms
+[ERROR @ host/libraries/libbladeRF/src/streaming/sync.c:337] wait_for_buffer: Timed out waiting for buf_ready after 1000 ms
+[ERROR @ host/libraries/libbladeRF/src/streaming/sync.c:337] wait_for_buffer: Timed out waiting for buf_ready after 1000 ms
+[ERROR @ host/libraries/libbladeRF/src/streaming/sync.c:337] wait_for_buffer: Timed out waiting for buf_ready after 1000 ms
+[ERROR @ host/libraries/libbladeRF/src/streaming/sync.c:337] wait_for_buffer: Timed out waiting for buf_ready after 1000 ms
+[ERROR @ host/libraries/libbladeRF/src/streaming/sync.c:337] wait_for_buffer: Timed out waiting for buf_ready after 1000 ms
+[ERROR @ host/libraries/libbladeRF/src/streaming/sync.c:337] wait_for_buffer: Timed out waiting for buf_ready after 1000 ms
+[ERROR @ host/libraries/libbladeRF/src/streaming/sync.c:337] wait_for_buffer: Timed out waiting for buf_ready after 1000 ms
