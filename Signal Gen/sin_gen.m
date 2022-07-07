@@ -1,4 +1,7 @@
 function sin_gen()
+% ORDER OF OPERATIONS: 
+%   1. Open this file and press run to create or update the .csv file
+
 % function to generate a sine signal - modified version of what Samuel 
 %   created
 
@@ -23,6 +26,6 @@ xlabel('Time (s)');
 ylabel('Amplitude');
 
 
-save_csv('sin_gen.cvs', x);
+save_csv('signal_zero.csv', x);
 
 end
