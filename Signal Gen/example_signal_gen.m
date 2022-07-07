@@ -1,7 +1,7 @@
 function example_signal_gen()
 
 % Our samples must be generated at the samplerate we plan to run the device at
-SAMPLE_RATE = 30e6;
+SAMPLE_RATE = 2e6;
 
 % Generate 10 seconds worth of samples. Bear in mind that when using the 
 % binary SC16 Q11 format, 1 sample consumes 4 bytes of memory/disk space.  
