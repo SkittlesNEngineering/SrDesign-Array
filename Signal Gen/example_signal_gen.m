@@ -1,17 +1,17 @@
 function example_signal_gen()
 
 % Our samples must be generated at the samplerate we plan to run the device at
-SAMPLE_RATE = 2e6;
+SAMPLE_RATE = 30e6;
 
 % Generate 10 seconds worth of samples. Bear in mind that when using the 
 % binary SC16 Q11 format, 1 sample consumes 4 bytes of memory/disk space.  
 % This quickly adds up - 10 seconds @ 2 Msps yields ~ 76.3 MiB. Be careful
 % when using higher sample rates!
-NUM_SECONDS = 10;
+NUM_SECONDS = 2;
 NUM_SAMPLES = NUM_SECONDS * SAMPLE_RATE;
 
-% 250 kHz, in radians (ω = F_Hz * 2pi)
-SIGNAL_FREQ_RAD = 250e3 * 2 * pi;
+% 1.25 MHz, in radians (ω = F_Hz * 2pi)
+SIGNAL_FREQ_RAD = 1.25e6 * 2 * pi;
 
 % Generate a vector "t" which represents time, in units of samples.
 % This starts at t=0, and creates NUM_SAMPLES samples in steps of 1/SAMPLE_RATE
@@ -26,9 +26,9 @@ f = linspace(-0.5 * SAMPLE_RATE, 0.5 * SAMPLE_RATE, length(signal));
 plot(f, 20*log10(abs(fftshift(fft(signal)))/NUM_SAMPLES));
 xlabel('Frequency (Hz)');
 ylabel('Power (dB)');
-title('250 kHz tone');
+title('1.25 MHz tone');
 
 % Save the signal to a file
-save_sc16q11('example_samples.sc16q11', signal); 
+save_sc16q11('bin_signal.sc16q11', signal); 
 
 end
