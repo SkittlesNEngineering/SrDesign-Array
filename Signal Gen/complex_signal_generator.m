@@ -1,14 +1,14 @@
 function complex_signal_generator()
 % ORDER OF OPERATIONS: 
 %   1. Open this file and press run to create or update the .csv file
+%   2. WAIT FOR THE FILE TO GENERATE - ITS BIG AND TAKES SOME TIME!!!
 
-% function to generate a sine signal - modified version of what Samuel 
-%   created
+% function to generate a compmlex sine signal
 
 % importnat note: Number   of   samples   per  buffer  to  use  in  the
 %   asynchronous stream.  Must be divisible by  1024 and >= 1024
 
-clear; clc;
+% clear; clc;
 
 % Our samples must be generated at the samplerate we plan to run the device at
 fs = 30e6;
@@ -17,8 +17,9 @@ fs = 30e6;
 % binary SC16 Q11 format, 1 sample consumes 4 bytes of memory/disk space.  
 % This quickly adds up - 10 seconds @ 2 Msps yields ~ 76.3 MiB. Be careful
 % when using higher sample rates!
-seconds = 2;
-n = t * fs;
+seconds = 160e-6;
+% n = number of samples, fs = sample rate
+n = seconds * fs;
 
 % 1.25 MHz, in radians (ω = F_Hz * 2pi)
 f_rad = 1.25e6 * 2 * pi;
