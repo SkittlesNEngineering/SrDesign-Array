@@ -1,4 +1,4 @@
-from os import system
+from subprocess import Popen
 
 def run_sdr_command(usr_input_str: str):
 
@@ -33,7 +33,11 @@ def run_sdr_command(usr_input_str: str):
         system("bladeRF-cli -i")
 
     elif usr_command=="probe" or usr_command=="p":
-        system("bladeRF-cli -p")
+        process1 = Popen(['start', '/wait', 'cmd', '/k', "python sdr_primary.py"], shell = True)
+        process2 = Popen(['start', '/wait', 'cmd', '/k', "python sdr_secondary.py"], shell = True)
+        process1.wait()
+        process2.wait()
+        # system("bladeRF-cli -p")
 
     elif usr_command=="quit" or usr_command=="q":
     # Quit command to allow user to kill program within command line structure.
