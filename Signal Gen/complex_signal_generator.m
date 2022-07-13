@@ -21,10 +21,10 @@ seconds = 160e-6;
 % n = number of samples, fs = sample rate
 n = seconds * fs;
 
-% 1.25 MHz, in radians (ω = F_Hz * 2pi)
+% 1.25 MHz, in radians (ω = F_Hz * 2π)
 f_rad = 1.25e6 * 2 * pi;
 
-% Phase shift, phi, in radians from degrees (phi = deg/180 * pi)
+% Phase shift, phi or φ, in radians from degrees (φ = °/180 * π)
 deg = 0;
 phi = (deg/180) * pi;
 
@@ -33,6 +33,7 @@ phi = (deg/180) * pi;
 t = [ 0 : (1/fs) : (seconds - 1/fs) ];
 
 % Create a sinusoid (signal = e^(jωt) ) with a magnitude of 0.90
+% Shift signal by specified angle (shift = e^(jφ))
 signal = 0.90 * exp(1j * phi) * exp(1j * f_rad * t);
 
 % Plot the FFT of our signal as a quick sanity check.
