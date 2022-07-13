@@ -44,6 +44,7 @@ def run_sdr_command(usr_input_str: str):
         pass
 
     elif usr_command=="probe" or usr_command=="p":
+        print("Probing for bladeRF devices...")
         system("bladeRF-cli -p")
         pass
 
