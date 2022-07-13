@@ -66,7 +66,8 @@ def main():
     print("Welcome to the SDR Controller... ")
     while True:
         rtrn_str = run_sdr_command(input("controller@bladeRF:~$ "))
-        print(rtrn_str)
+        if type(rtrn_str)==str:
+            print(rtrn_str)
 
 if __name__ == '__main__':
     main()
