@@ -14,41 +14,30 @@ def run_sdr_command(usr_input_str: str):
         angle=int(usr_input_list[1])
         if angle == -20:
             # system("bladeRF-cli -s signal_ntwenty.txt -i")
-            process1 = Popen(['start', '/wait', 'cmd', '/k', "bladeRF-cli -s primary_ntwenty.txt -i"], shell = True)
-            process2 = Popen(['start', '/wait', 'cmd', '/k', "bladeRF-cli -s secondary_ntwenty.txt -i"], shell = True)
-            process1.wait()
-            process2.wait()
-            pass
+            angle_txt = "ntwenty"
         elif angle == -10:
             # system("bladeRF-cli -s signal_nten.txt -i")
-            process1 = Popen(['start', '/wait', 'cmd', '/k', "bladeRF-cli -s signal_nten.txt -i"], shell = True)
-            process2 = Popen(['start', '/wait', 'cmd', '/k', "bladeRF-cli -s secondary_nten.txt -i"], shell = True)
-            process1.wait()
-            process2.wait()
-            pass
+            angle_txt = "nten"
         elif angle == 0:
             # system("bladeRF-cli -s signal_zero.txt -i")
-            process1 = Popen(['start', '/wait', 'cmd', '/k', "bladeRF-cli -s primary_zero.txt -i"], shell = True)
-            process2 = Popen(['start', '/wait', 'cmd', '/k', "bladeRF-cli -s secondary_zero.txt -i"], shell = True)
-            process1.wait()
-            process2.wait()
-            pass
+            angle_txt = "zero"
         elif angle == 10:
             # system("bladeRF-cli -s signal_ten.txt -i")
-            process1 = Popen(['start', '/wait', 'cmd', '/k', "bladeRF-cli -s primary_ten.txt -i"], shell = True)
-            process2 = Popen(['start', '/wait', 'cmd', '/k', "bladeRF-cli -s secondary_ten.txt -i"], shell = True)
-            process1.wait()
-            process2.wait()
-            pass
+            angle_txt = "ten"
         elif angle == 20:
             # system("bladeRF-cli -s signal_twenty.txt -i")
-            process1 = Popen(['start', '/wait', 'cmd', '/k', "bladeRF-cli -s primary_twenty.txt -i"], shell = True)
-            process2 = Popen(['start', '/wait', 'cmd', '/k', "bladeRF-cli -s secondary_twenty.txt -i"], shell = True)
-            process1.wait()
-            process2.wait()
-            pass
+            angle_txt = "twenty"
         else: return "ERR: Target angle is not in set. \nTry again with one of the following angles: [-20,-10,0,10,20]"
     
+        
+        primary_file = "primary_" + angle_txt + ".txt"
+        secondary_file = "secondary_" + angle_txt + ".txt"
+        process1 = Popen(['start', '/wait', 'cmd', '/k', "bladeRF-cli -d '*:serial=xxx' -s " + primary_file + " -i"], shell = True)
+        process2 = Popen(['start', '/wait', 'cmd', '/k', "bladeRF-cli -d '*:serial=xxx' -s " + secondary_file + " -i"], shell = True)
+        process1.wait()
+        process2.wait()
+        pass
+
     elif usr_command=="interactive" or usr_command=="i":
         print("Entering Interactive Mode...")
         system("bladeRF-cli -i")
@@ -77,7 +66,8 @@ def main():
     print("Welcome to the SDR Controller... ")
     while True:
         rtrn_str = run_sdr_command(input("controller@bladeRF:~$ "))
-        print(rtrn_str)
+        if type(rtrn_str)==str:
+            print(rtrn_str)
 
 if __name__ == '__main__':
     main()

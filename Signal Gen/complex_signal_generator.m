@@ -45,6 +45,6 @@ ylabel('Power (dB)');
 title('1.25 MHz tone');
 
 % Save the signal to a file
-save_sc16q11('zero_element4.sc16q11', signal); 
+save_sc16q11('zero_element1.sc16q11', signal); 
 
 end

@@ -1,0 +1,42 @@
+# to start, open one terminal and run this script using: 
+#       bladeRF -d '*:serial=xxx' -s leader_ntwenty.txt -i
+
+# once both master and slave terminals are open and the SDRs are loaded up:
+# in the master termainal, activate the trigger signal by:
+#       trigger J51-1 tx fire
+
+# -------------------------------------------------------------------
+
+# set up device params for the binary complex sine signal
+
+set frequency 2.4G
+set samplerate 30M
+set bandwidth 2.5M
+
+# configure both tx channels with the same signal
+tx config channel=1 file=C:/SDR/ntwenty_element1.sc16q11 format=bin repeat=100 timeout=10s
+tx config channel=2 file=C:/SDR/ntwenty_element2.sc16q11 format=bin repeat=100 timeout=10s
+
+# HERE IS WHERE TO INSERT CODE FOR THE CLOCK
+# THIS PART NEEDS TO BE DOUBLE CHECKED!!!
+#       notes: In general, set <parameter> will display more help for that parameter.
+set 
+
+
+# arm trigger portion 
+# notes: J51-1   Trigger signal is on mini_exp1  (bladeRF  xA4/xA9,  J51,
+#   pin 1).
+
+trigger J51-1 tx master
+
+# this is stalled until the trigger is fired in the master terminal by:
+#       trigger J51-1 tx fire
+tx start
+
+# Inform user how to fire trigger
+echo "  ---------------------------------------------------------------"
+echo "   Once slave.txt is in the other terminal,"
+echo "   run 'trigger J51-1 tx fire' to fire trigger."
+echo "  ---------------------------------------------------------------"
+echo ""
+
