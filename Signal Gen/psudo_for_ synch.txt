@@ -6,8 +6,7 @@
 #   
 
 #------------------------bladeRF----------------------------------
-#   connect pin 4 on J71 (check out JTAG on the schematic) from 
-#       both SDRs together (trigger signal)
+#
 #
 #   create two different scripts, one for master and one for slave SDR
 #   set triggers and connect trigger pins together on the boards

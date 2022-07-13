@@ -1,5 +1,5 @@
 # to start, open one terminal and run this script using: 
-#       bladeRF -d '*:serial=xxx' -s master.txt -i
+#       bladeRF -d '*:serial=72e' -s master.txt -i
 
 # once both master and slave terminals are open and the SDRs are loaded up:
 # in the master termainal, activate the trigger signal by:
@@ -9,7 +9,7 @@
 
 # set up device params for the binary complex sine signal
 
-set frequency 2.4G
+set frequency 2.285
 set samplerate 30M
 set bandwidth 2.5M
 
@@ -19,7 +19,10 @@ tx config channel=1,2 file=C:/SDR/bin_signal.sc16q11 format=bin repeat=100 timeo
 # HERE IS WHERE TO INSERT CODE FOR THE CLOCK
 # THIS PART NEEDS TO BE DOUBLE CHECKED!!!
 #       notes: In general, set <parameter> will display more help for that parameter.
-set 
+#       clock_out is a bool value
+#       
+# turns on the CLOCKOUT pin
+set clock_out true
 
 
 # arm trigger portion 

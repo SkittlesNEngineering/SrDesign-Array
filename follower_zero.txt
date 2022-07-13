@@ -9,7 +9,7 @@
 
 # set up device params for the binary complex sine signal
 
-set frequency tx 2.4G
+set frequency tx 2.285G
 set samplerate tx 30M
 set bandwidth tx 2.5M
 
