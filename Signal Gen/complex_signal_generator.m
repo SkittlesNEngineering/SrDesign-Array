@@ -24,12 +24,16 @@ n = seconds * fs;
 % 1.25 MHz, in radians (ω = F_Hz * 2pi)
 f_rad = 1.25e6 * 2 * pi;
 
+% Phase shift, phi, in radians from degrees (phi = deg/180 * pi)
+deg = 0;
+phi = (deg/180) * pi;
+
 % Generate a vector "t" which represents time, in units of samples.
 % This starts at t=0, and creates n samples in steps of 1/SAMPLE_RATE
 t = [ 0 : (1/fs) : (seconds - 1/fs) ];
 
 % Create a sinusoid (signal = e^(jωt) ) with a magnitude of 0.90
-signal = 0.90 * exp(1j * f_rad * t);
+signal = 0.90 * exp(1j * phi) * exp(1j * f_rad * t);
 
 % Plot the FFT of our signal as a quick sanity check.
 % The NUM_SAMPLES denominator is just to normalize this for display purposes.
@@ -40,6 +44,6 @@ ylabel('Power (dB)');
 title('1.25 MHz tone');
 
 % Save the signal to a file
-save_sc16q11('bin_signal.sc16q11', signal); 
+save_sc16q11('zero_element1.sc16q11', signal); 
 
 end
