@@ -27,7 +27,7 @@ f_rad = 1.25e6 * 2 * pi;
 % Phase shift, phi or φ, in radians from degrees (φ = °/180 * π)
 deg1 = 0;
 phi1 = (deg1/180) * pi;
-deg2 = 0;
+deg2 = 45;
 phi2 = (deg2/180) * pi;
 
 % Generate a vector "t" which represents time, in units of samples.
