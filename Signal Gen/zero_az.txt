@@ -7,10 +7,9 @@ set bandwidth tx 2.5M
 # set loopback firmware
 
 # configure tx and rx channels
-tx config channel=1,2 file=C:/SDR/bin_signal.sc16q11 format=bin timeout=10s repeat=100
+# tx config channel=1,2 file=C:/SDR/bin_signal.sc16q11 format=bin timeout=10s repeat=100
+# tx config channel=1 file=C:/SDR/zero_element1.sc16q11 format=bin timeout=30s repeat=1000
 tx config channel=1,2 file=C:/SDR/leader.csv format=csv timeout=60s repeat=10000
-tx config channel=1 file=C:/SDR/zero_element1.sc16q11 format=bin timeout=30s repeat=1000
-
 
 # start running the channels
 # tx start
