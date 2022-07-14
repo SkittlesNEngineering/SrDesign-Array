@@ -48,9 +48,22 @@ signal2 = 0.90 * exp(1j * phi2) * exp(1j * f_rad * t);
 %title('1.25 MHz tone');
 
 % Save the signal to a file
-save_csv('zero_element1.csv', signal1); 
-save_csv('zero_element2.csv', signal2); 
+tx1_filename = 'zero_element1.csv'
+tx2_filename = 'zero_element2.csv'
+combined_filename = 'leader_zero.csv'
 
-combine_csv('zero_element1.csv','zero_element2.csv')
+save_csv(tx1_filename, signal1); 
+save_csv(tx2_filename, signal2);
+
+tx1_table = readtable(tx1_filename);
+tx2_table = readtable(tx2_filename);
+tx2_table = renamevars(tx2_table,["Var1","Var2"],["Var3","Var4"]);
+combined_table = [tx1_table tx2_table];
+combined_table(1,:) = [];
+writetable(combined_table, 'leader_zero.csv', 'Delimiter',',');
+
+delete tx1_filename
+delete tx2_filename
+    
 
 end

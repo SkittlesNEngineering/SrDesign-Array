@@ -32,8 +32,8 @@ def run_sdr_command(usr_input_str: str):
         
         leader_file = "leader_" + angle_txt + ".txt"
         follower_file = "follower_" + angle_txt + ".txt"
-        process1 = Popen(['start', '/wait', 'cmd', '/k', "bladeRF-cli -d '*:serial=72ebccb3ce0e4cd399c0123dab762cea' -s " + leader_file + " -i"], shell = True)
-        process2 = Popen(['start', '/wait', 'cmd', '/k', "bladeRF-cli -d '*:serial=354' -s " + follower_file + " -i"], shell = True)
+        process1 = Popen(['start', '/wait', 'cmd', '/k', "bladeRF-cli -s " + leader_file + " -i"], shell = True)
+        process2 = Popen(['start', '/wait', 'cmd', '/k', "bladeRF-cli -s " + follower_file + " -i"], shell = True)
         process1.wait()
         process2.wait()
         pass
