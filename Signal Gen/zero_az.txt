@@ -1,15 +1,15 @@
 # this is the file to run for MO
 # set up device params for the binary complex sine signal
 
-set frequency 2.4G
-set samplerate 30M
-set bandwidth 2.5M
+set frequency tx 2.4G
+set samplerate tx 30M
+set bandwidth tx 2.5M
 # set loopback firmware
 
 # configure tx and rx channels
 tx config channel=1,2 file=C:/SDR/bin_signal.sc16q11 format=bin timeout=10s repeat=100
-tx config channel=1 file=C:/SDR/zero_element1.csv format=csv timeout=30s repeat=1000
-tx config channel=2 file=C:/SDR/zero_element2.sc16q11 format=bin timeout=30s repeat=1000
+tx config channel=1,2 file=C:/SDR/leader.csv format=csv timeout=60s repeat=10000
+tx config channel=1 file=C:/SDR/zero_element1.sc16q11 format=bin timeout=30s repeat=1000
 
 
 # start running the channels
