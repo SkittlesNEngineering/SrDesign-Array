@@ -1,4 +1,10 @@
-# this is the file to run for MO
+# this is the file to run for testing the SDR.
+# call this scrip from cmd: put these commands into cmd
+# cd ..
+# cd ..
+# cd SDR
+# bladeRF-cli -s sdr_test.txt -i
+
 # set up device params for the binary complex sine signal
 
 set frequency tx 2.4G
