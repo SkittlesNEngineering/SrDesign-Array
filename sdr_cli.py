@@ -30,10 +30,10 @@ def run_sdr_command(usr_input_str: str):
         else: return "ERR: Target angle is not in set. \nTry again with one of the following angles: [-20,-10,0,10,20]"
     
         
-        primary_file = "primary_" + angle_txt + ".txt"
-        secondary_file = "secondary_" + angle_txt + ".txt"
-        process1 = Popen(['start', '/wait', 'cmd', '/k', "bladeRF-cli -d '*:serial=xxx' -s " + primary_file + " -i"], shell = True)
-        process2 = Popen(['start', '/wait', 'cmd', '/k', "bladeRF-cli -d '*:serial=xxx' -s " + secondary_file + " -i"], shell = True)
+        leader_file = "leader_" + angle_txt + ".txt"
+        follower_file = "follower_" + angle_txt + ".txt"
+        process1 = Popen(['start', '/wait', 'cmd', '/k', "bladeRF-cli -d '*:serial=72ebccb3ce0e4cd399c0123dab762cea' -s " + leader_file + " -i"], shell = True)
+        process2 = Popen(['start', '/wait', 'cmd', '/k', "bladeRF-cli -d '*:serial=354' -s " + follower_file + " -i"], shell = True)
         process1.wait()
         process2.wait()
         pass
