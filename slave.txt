@@ -11,9 +11,12 @@ open *:serial=3543e189dc7046c7a10b6adedc1afa3d
 
 # set up device params for the binary complex sine signal
 
-set frequency 2.285G
-set samplerate 30M
-set bandwidth 2.5M
+# frequency for testing
+set frequency tx 50M
+
+# set frequency tx 2.285G
+set samplerate tx 30M
+set bandwidth tx 2.5M
 
 # configure both tx channels with the same signal
 tx config channel=1,2 file=C:/SDR/bin_signal.sc16q11 format=bin repeat=100 timeout=10s
