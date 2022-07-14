@@ -1,8 +1,7 @@
 # this is the file to run for testing the SDR.
 # call this scrip from cmd: put these commands into cmd
-# cd ..
-# cd ..
-# cd SDR
+
+# cd "C:\Users\m85st\Documents\SD2 Project\SrDesign-Array\Signal Gen"
 # bladeRF-cli -s sdr_test.txt -i
 
 # set up device params for the binary complex sine signal
