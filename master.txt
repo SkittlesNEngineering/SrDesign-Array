@@ -6,6 +6,8 @@
 #       trigger J51-1 tx fire
 
 # -------------------------------------------------------------------
+# in interactive mode: open the correct SDR for master
+open *:serial=72ebccb3ce0e4cd399c0123dab762cea
 
 # set up device params for the binary complex sine signal
 
