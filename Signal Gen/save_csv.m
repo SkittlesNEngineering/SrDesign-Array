@@ -19,5 +19,5 @@ function save_csv(filename, signal)
     sig_q(sig_q < -2048) = -2048;
 
     sig = [sig_i sig_q];
-    csvwrite(filename, sig);
+    csvwrite(filename, sig.);
 end
