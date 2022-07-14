@@ -19,5 +19,9 @@ function save_csv(filename, signal)
     sig_q(sig_q < -2048) = -2048;
 
     sig = [sig_i sig_q];
-    csvwrite(filename, sig.);
-end
+    csvwrite(filename, sig);
+    
+    fileName = fullfile(pwd, filename);
+    fid = fopen(fileName, 'wt');
+    fprintf(fid, '%f, %f\n', sig_i, sig_q);
+    fclose(fid);
