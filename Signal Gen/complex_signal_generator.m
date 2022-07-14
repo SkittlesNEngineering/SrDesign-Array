@@ -17,7 +17,7 @@ fs = 30e6;
 % binary SC16 Q11 format, 1 sample consumes 4 bytes of memory/disk space.  
 % This quickly adds up - 10 seconds @ 2 Msps yields ~ 76.3 MiB. Be careful
 % when using higher sample rates!
-seconds = 160e-6;
+seconds = 160e-3;
 % n = number of samples, fs = sample rate
 n = seconds * fs;
 

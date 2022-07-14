@@ -1,5 +1,5 @@
 # to start, open one terminal and run this script using: 
-#       bladeRF -d '*:serial=xxx' -s leader_ntwenty.txt -i
+#       bladeRF -d '*:serial=72e' -s leader_ntwenty.txt -i
 
 # once both master and slave terminals are open and the SDRs are loaded up:
 # in the master termainal, activate the trigger signal by:
