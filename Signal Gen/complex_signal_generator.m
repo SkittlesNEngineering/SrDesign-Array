@@ -48,9 +48,16 @@ signal2 = 0.90 * exp(1j * phi2) * exp(1j * f_rad * t);
 %title('1.25 MHz tone');
 
 % Save the signal to a file
-save_csv('zero_element1.csv', signal1); 
-save_csv('zero_element2.csv', signal2); 
+tx1_filename = 'zero_element1.csv'
+tx2_filename = 'zero_element2.csv'
 
-combine_csv('zero_element1.csv','zero_element2.csv')
+save_csv(tx1_filename, signal1); 
+save_csv(tx2_filename, signal2);
+
+combine_csv(tx1_filename,tx2_filename);
+
+delete tx1_filename;
+delete tx2_filename;
+    
 
 end
