@@ -42,6 +42,7 @@ t = 0 : (1/fs) : (seconds - 1/fs);
 signal1 = 0.90 * exp(1j * phi1) * exp(1j * f_rad * t);
 signal2 = 0.90 * exp(1j * phi2) * exp(1j * f_rad * t);
 
+
 %% Verification of signals
 % Select a window of time, frw, to view the complex waveform
 % Frame to be shown can be selected with frn
@@ -150,6 +151,7 @@ xlabel('Time (s)', 'Fontsize', 11)
 ylabel('Re Magnitude', 'Fontsize', 11)
 legend('Signal 2','Start','Location','northeastoutside')
 axis square;
+
 
 %% Save signals and combine into one file
 % Save the signals to files
