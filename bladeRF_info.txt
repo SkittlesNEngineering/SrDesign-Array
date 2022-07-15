@@ -1,5 +1,12 @@
 bladeRF> print
 
+  # BANDWIDTH RANGE :     [200000, 56000000]
+    # set bandwidth tx
+  # CARRIER FREQ RANGE :  [70000000, 6000000000]
+    # set frequency tx
+  # SAMPLING FREQ RANGE : [520834, 61440000]
+    # set samplerate tx
+
   RX1 Bandwidth:  18000000 Hz (Range: [200000, 56000000])
   RX2 Bandwidth:  18000000 Hz (Range: [200000, 56000000])
   TX1 Bandwidth:  18000000 Hz (Range: [200000, 56000000])

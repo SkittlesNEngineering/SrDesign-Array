@@ -9,17 +9,24 @@
 # in interactive mode: open the correct SDR for master
 open *:serial=72ebccb3ce0e4cd399c0123dab762cea
 
-# set up device params for the binary complex sine signal
+# set up device params for the complex sine signal
 
-# Test frequency
+# Oscilliscope testing carrier frequency
 set frequency tx 100M
 
+# Actual carrier frequency
 # set frequency tx 2.285G
+
+# Sampling frequency of BB signal from MATLAB
+# NOTE: Must be the same as MATLAB
 set samplerate tx 30M
+
+# Bandwidth of signal
 set bandwidth tx 2.5M
 
-# configure both tx channels with combined file
+# Configure both tx channels with the signals in 4-column csv
 tx config channel=1,2 file=C:/SDR/leader_zero.csv format=csv repeat=100000000 timeout=30s
+
 
 # HERE IS WHERE TO INSERT CODE FOR THE CLOCK
 # THIS PART NEEDS TO BE DOUBLE CHECKED!!!

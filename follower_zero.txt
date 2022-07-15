@@ -6,18 +6,26 @@
 #       trigger J51-1 tx fire
 
 # -------------------------------------------------------------------
+# in interactive mode: open the correct SDR for master
+open *:serial=3543e189dc7046c7a10b6adedc1afa3d
 
-# set up device params for the binary complex sine signal
+# set up device params for the complex sine signal
 
-# Test frequency
+# Oscilliscope testing carrier frequency
 set frequency tx 100M
 
-#set frequency tx 2.285G
+# Actual carrier frequency
+# set frequency tx 2.285G
+
+# Sampling frequency of BB signal from MATLAB
+# NOTE: Must be the same as MATLAB
 set samplerate tx 30M
+
+# Bandwidth of signal
 set bandwidth tx 2.5M
 
-# configure both tx channels with the same signal
-tx config channel=1,2 file=C:/SDR/leader_zero.csv format=csv repeat=100000000 timeout=60s
+# Configure both tx channels with the signals in 4-column csv
+tx config channel=1,2 file=C:/SDR/follower_zero.csv format=csv repeat=100000000 timeout=60s
 
 
 # HERE IS WHERE TO INSERT CODE FOR THE CLOCK
