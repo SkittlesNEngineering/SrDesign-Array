@@ -6,16 +6,20 @@
 #       trigger J51-1 tx fire
 
 # -------------------------------------------------------------------
+# in interactive mode: open the correct SDR for master
+open *:serial=72ebccb3ce0e4cd399c0123dab762cea
 
 # set up device params for the binary complex sine signal
 
-set frequency 2.285G
-set samplerate 30M
-set bandwidth 2.5M
+# Test frequency
+set frequency tx 100M
 
-# configure both tx channels with the same signal
-tx config channel=1 file=C:/SDR/ntwenty_element1.sc16q11 format=bin repeat=100 timeout=10s
-tx config channel=2 file=C:/SDR/ntwenty_element2.sc16q11 format=bin repeat=100 timeout=10s
+# set frequency tx 2.285G
+set samplerate tx 30M
+set bandwidth tx 2.5M
+
+# configure both tx channels with combined file
+tx config channel=1,2 file=C:/SDR/leader_zero.csv format=csv repeat=100 timeout=30s
 
 # HERE IS WHERE TO INSERT CODE FOR THE CLOCK
 # THIS PART NEEDS TO BE DOUBLE CHECKED!!!
@@ -23,18 +27,18 @@ tx config channel=2 file=C:/SDR/ntwenty_element2.sc16q11 format=bin repeat=100 t
 #       clock_out is a bool value
 #       
 # turns on the CLOCKOUT pin
-set clock_out true
+# set clock_out true
 
 
 # arm trigger portion 
 # notes: J51-1   Trigger signal is on mini_exp1  (bladeRF  xA4/xA9,  J51,
 #   pin 1).
 
-trigger J51-1 tx master
+# trigger J51-1 tx master
 
 # this is stalled until the trigger is fired in the master terminal by:
 #       trigger J51-1 tx fire
-tx start
+# tx start
 
 # Inform user how to fire trigger
 echo "  ---------------------------------------------------------------"
