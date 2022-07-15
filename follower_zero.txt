@@ -9,13 +9,16 @@
 
 # set up device params for the binary complex sine signal
 
-set frequency tx 2.285G
+# Test frequency
+set frequency tx 100M
+
+#set frequency tx 2.285G
 set samplerate tx 30M
 set bandwidth tx 2.5M
 
 # configure both tx channels with the same signal
-tx config channel=1 file=C:/SDR/ntwenty_element3.sc16q11 format=bin repeat=100 timeout=10s 
-tx config channel=2 file=C:/SDR/ntwenty_element4.sc16q11 format=bin repeat=100 timeout=10s 
+tx config channel=1,2 file=C:/SDR/leader_zero.csv format=csv repeat=100000000 timeout=60s
+
 
 # HERE IS WHERE TO INSERT CODE FOR THE CLOCK
 
@@ -24,15 +27,13 @@ tx config channel=2 file=C:/SDR/ntwenty_element4.sc16q11 format=bin repeat=100 t
 # notes: J51-1   Trigger signal is on mini_exp1  (bladeRF  xA4/xA9,  J51,
 #   pin 1).
 
-trigger J51-1 tx slave
+#trigger J51-1 tx slave
 
 # this is stalled until the trigger is fired in the master terminal by:
 #       trigger J51-1 tx fire
-tx start
+#tx start
 
 # Inform user how to fire trigger
 echo "  ---------------------------------------------------------------"
 echo "   Ready. Fire the trigger on the master terminal."
 echo "  ---------------------------------------------------------------"
-
-tx wait

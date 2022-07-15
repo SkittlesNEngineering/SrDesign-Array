@@ -19,7 +19,7 @@ set samplerate tx 30M
 set bandwidth tx 2.5M
 
 # configure both tx channels with combined file
-tx config channel=1,2 file=C:/SDR/leader_zero.csv format=csv repeat=100 timeout=30s
+tx config channel=1,2 file=C:/SDR/leader_zero.csv format=csv repeat=100000000 timeout=30s
 
 # HERE IS WHERE TO INSERT CODE FOR THE CLOCK
 # THIS PART NEEDS TO BE DOUBLE CHECKED!!!
