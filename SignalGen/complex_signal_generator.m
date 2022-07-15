@@ -5,11 +5,14 @@ function complex_signal_generator()
 
 % Function to generate a complex sine signal
 
+clear; close all; clc;
+combined_filename = 'leader_zero.csv';
+sig1_deg = 0;
+sig2_deg = 20;
+
 % NOTE: Number of samples per buffer to use in the asynchronous stream
 %       must be divisible by 1024 and >= 1024
 %       Buffer size is ???
-
-clear; close all; clc;
 
 % NOTE: when using the binary SC16 Q11 format,
 % 1 sample consumes ~4 bytes of memory/disk space.  
@@ -32,10 +35,8 @@ f_hz = 1e6;
 f_rad = f_hz * 2 * pi;
 
 % Phase shift, phi or φ, in radians from degrees (φ = °/180 * π)
-deg1 = 0;
-phi1 = (deg1/180) * pi;
-deg2 = 20;
-phi2 = (deg2/180) * pi;
+phi1 = (sig1_deg/180) * pi;
+phi2 = (sig2_deg/180) * pi;
 
 % Generate a vector "t" which represents time, in units of samples.
 % This starts at t=0, and creates n samples in steps of 1/SAMPLE_RATE
@@ -82,28 +83,27 @@ s2_fdomain = 1/n*abs(fftshift(s2_fdomain));
 s1_fdom_dB = 20.*log10(s1_fdomain);
 s2_fdom_dB = 20.*log10(s2_fdomain);
 % Plot frequency domain
-figure('NumberTitle','off','Name','Frequency Domain',...
-    'Position', [640 545 1250 420])
+figure('NumberTitle','off','Name','Frequency Domain', 'Units','normalized','Position',[0.3 0.2 0.5 0.5])
 subplot(1,2,1)
-plot(f,s1_fdom_dB,'Color', '#0072BD'); grid on;
+semilogy(f,s1_fdom_dB,'Color', '#0072BD'); grid on;
 title('Signal 1 (Frequency Domain)', 'Fontsize', 14)
 xlabel('Frequency, (MHz)', 'Fontsize', 11)
 ylabel('Magnitude, (dB)', 'Fontsize', 11)
 xtickangle(45)
 ax = gca;
 ax.XAxis.Exponent = 6;
+ax.YAxis.Exponent = 0;
 xlim([-fs/2 fs/2])
-ylim([-20 0])
 subplot(1,2,2)
-plot(f,s2_fdom_dB,'Color', '#EDB120'); grid on;
+semilogy(f,s2_fdom_dB,'Color', '#EDB120'); grid on;
 title('Signal 2 (Frequency Domain)', 'Fontsize', 14)
 xlabel('Frequency, (MHz)', 'Fontsize', 11)
 ylabel('Magnitude, (dB)', 'Fontsize', 11)
 xtickangle(45)
 ax = gca;
 ax.XAxis.Exponent = 6;
+ax.YAxis.Exponent = 0;
 xlim([-fs/2 fs/2])
-ylim([-20 0])
 
 % Create time domain plots
 % Time axis specified by frw and frn
@@ -111,8 +111,7 @@ t_plot = t((frn-1)*floor(frw*fs)+1:frn*floor(frw*fs));
 % Resize signals for time domain frame
 s1_tdomain = s1_padded(1:n);
 s2_tdomain = s2_padded(1:n);
-figure('NumberTitle','off','Name','Time Domain',...
-    'Position', [640 40 1250 420])
+figure('NumberTitle','off','Name','Time Domain', 'Units','normalized','Position',[0.25 0.25 0.5 0.5])
 % Plot real and imaginary parts of signal 1 in time domain
 subplot(2,2,1)
 s1_Re = real(s1_tdomain);
@@ -163,7 +162,6 @@ axis square;
 % Save the signals to files
 tx1_filename = 'element1.csv';
 tx2_filename = 'element2.csv';
-combined_filename = 'leader_zero.csv';
 
 save_csv(tx1_filename, signal1); 
 save_csv(tx2_filename, signal2);
