@@ -19,7 +19,7 @@ set frequency tx 100M
 
 # Sampling frequency of BB signal from MATLAB
 # NOTE: Must be the same as MATLAB
-set samplerate tx 30M
+set samplerate tx 32M
 
 # Bandwidth of signal
 set bandwidth tx 2.5M

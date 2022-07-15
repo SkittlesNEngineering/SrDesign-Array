@@ -25,7 +25,7 @@ set samplerate tx 32M
 set bandwidth tx 2.5M
 
 # Configure both tx channels with the signals in 4-column csv
-tx config channel=1,2 file=C:/SDR/follower_zero.csv format=csv repeat=100000000 timeout=60s
+tx config channel=1,2 file=C:/SDR/follower_ten.csv format=csv repeat=100000000 timeout=60s
 
 
 # HERE IS WHERE TO INSERT CODE FOR THE CLOCK

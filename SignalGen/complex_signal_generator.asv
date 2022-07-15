@@ -5,24 +5,20 @@ function complex_signal_generator()
 
 % Function to generate a complex sine signal
 
-% NOTE: Number of samples per buffer to use in the asynchronous stream
-%       must be divisible by 1024 and >= 1024
-%       Buffer size is ???
+% NOTE: Number of samples per buffer to use in the asynchronous stream must be divisible by 1024 and >= 1024
 
 clear; close all; clc;
 
-% NOTE: when using the binary SC16 Q11 format,
-% 1 sample consumes ~4 bytes of memory/disk space.  
+% Our samples must be generated at the samplerate we plan to run the device at
+fs = 32e6; % fs = sample rate, 32 MSps or 32 MHz
+
+% Bear in mind that when using the binary SC16 Q11 format,
+% 1 sample consumes 4 bytes of memory/disk space.  
 % This quickly adds up: 10 seconds @ 2 MSps yields ~ 76.3 MiB.
 % Be careful when using higher sample rates!
 
-% Samples must be generated at samplerate we plan to run device at.
-% Set signal length to a reasonable number of seconds. (Save disk space.)
-% Check number of samples per buffer is multiple of 1024
-
-fs = 32e6;          % fs = sample rate, 32 MSps or 32 MHz
-seconds = 16e-3;    % Number of seconds of signal to generate for .csv file, 16 ms
-n = seconds * fs;   % n = number of samples, 512 kS
+seconds = 16e-3; % Number of seconds of signal to generate for .csv file, 16 ms
+n = seconds * fs; % n = number of samples, 512 kS
 
 % 1 MHz, in radians (ω = F_Hz * 2π)
 f_hz = 1e6;

@@ -15,7 +15,7 @@ open *:serial=72ebccb3ce0e4cd399c0123dab762cea
 set frequency tx 50M
 
 #set frequency tx 2.285
-set samplerate tx 30M
+set samplerate tx 32M
 set bandwidth tx 2.5M
 
 # configure both tx channels with the same signal
