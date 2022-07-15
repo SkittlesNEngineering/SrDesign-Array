@@ -19,10 +19,13 @@ clear; close all; clc;
 % Samples must be generated at samplerate we plan to run device at.
 % Set signal length to a reasonable number of seconds. (Save disk space.)
 % Check number of samples per buffer is multiple of 1024
+% n_buffer = 16384 samples = 2^14 or 16 kS (binary)
+% buffers = 32
+% samples needed = n_buffer * buffers = 524288 = 512 kS (binary)
 
-fs = 32e6;          % fs = sample rate, 32 MSps or 32 MHz
-seconds = 16e-3;    % Number of seconds of signal to generate for .csv file, 16 ms
-n = seconds * fs;   % n = number of samples, 512 kS
+fs = 2^25;           % fs = sample rate, 33554432 or 32 MSps (binary)
+seconds = 15.625e-3; % Number of seconds of signal to generate for .csv file, ~16 ms
+n = seconds * fs;     % n = number of samples, 512 kS (binary)
 
 % 1 MHz, in radians (ω = F_Hz * 2π)
 f_hz = 1e6;
