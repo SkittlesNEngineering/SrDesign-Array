@@ -17,7 +17,8 @@ set bandwidth tx 2.5M
 
 
 #tx config channel=1,2 file="C:\Users\m85st\Documents\SD2 Project\SrDesign-Array\Signal Gen\leader.csv" format=csv timeout=60s repeat=10000
-tx config channel=1,2 file=C:/SDR/leader.csv format=csv timeout=60s repeat=10000
+#tx config channel=1,2 file=C:/SDR/leader.csv format=csv timeout=60s repeat=10000
+tx config channel=1,2 file="D:\Users\mejo1\OneDrive\Documents\GitHub\SrDesign-Array\Signal Gen\leader.csv" format=csv timeout=60s repeat=10000
 
 # start running the channels
 # tx start
