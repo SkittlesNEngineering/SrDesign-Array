@@ -3,7 +3,7 @@ function complex_signal_generator()
 %   1. Open this file and press run to create or update the .csv file
 %   2. WAIT FOR THE FILE TO GENERATE - ITS BIG AND TAKES SOME TIME!!!
 
-% function to generate a compmlex sine signal
+% Function to generate a complex sine signal
 
 % importnat note: Number   of   samples   per  buffer  to  use  in  the
 %   asynchronous stream.  Must be divisible by  1024 and >= 1024
