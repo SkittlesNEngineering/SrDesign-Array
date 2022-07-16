@@ -42,7 +42,6 @@ def run_sdr_command(usr_input_str: str):
 
     else: return "ERR: Command not recognised."
 
-
 def main():
     print("Welcome to the SDR Controller... ")
     while True:
