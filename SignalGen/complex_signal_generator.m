@@ -8,7 +8,7 @@ function complex_signal_generator()
 clear; close all; clc;
 combined_filename = 'leader_zero.csv';
 sig1_deg = 0;
-sig2_deg = 90;
+sig2_deg = 0;
 
 % NOTE: Number of samples per buffer to use in the asynchronous stream
 %       must be divisible by 1024 and >= 1024
