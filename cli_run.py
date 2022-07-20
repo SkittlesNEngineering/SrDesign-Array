@@ -30,19 +30,10 @@ args = parser.parse_args()
 # Target angle must be one of these [-20,-10,0,10,20]
 # If no angle is selected the user will be prompted to try again.
     # Set str variable angle_txt to string for specific beam angle file
-angle=args.angle
-if angle == -20:
-    angle_txt = "ntwenty"
-elif angle == -10:
-    angle_txt = "nten"
-elif angle == 0:
-    angle_txt = "zero"
-elif angle == 10:
-    angle_txt = "ten"
-elif angle == 20:
-    angle_txt = "twenty"
 
-print("Running bladeRF script files for {} degree beam angle...\n".format(angle))
+angle_txt = str(args.angle)
+
+print("Running bladeRF script files for {} degree beam angle...\n".format(args.angle))
 
 # Create string for specific beam angle files
 # File for leader and follower must exist in this directory
