@@ -4,11 +4,15 @@
 
 # -------------------------------------------------------------------
 # in interactive mode: open the correct SDR for master
-open *:serial=72ebccb3ce0e4cd399c0123dab762cea
+open *:serial=3543e189dc7046c7a10b6adedc1afa3d
 
 # set up device params for the complex sine signal
+
+# Oscilliscope testing carrier frequency
+set frequency tx 100M
+
 # Actual carrier frequency
-set frequency tx 2.285G
+# set frequency tx 2.285G
 
 # Sampling frequency of BB signal from MATLAB
 # NOTE: Must be the same as MATLAB
@@ -18,32 +22,23 @@ set samplerate tx 32M
 set bandwidth tx 2.5M
 
 # Configure both tx channels with the signals in 4-column csv
-# set to 10,000,000 repeats to let the follower SDR work for as long as possible
-tx config channel=1,2 file=C:/SDR/leader_zero.csv format=csv repeat=10000000 timeout=60s
+tx config channel=1,2 file=C:/SDR/follower_zero.csv format=csv repeat=100000000 timeout=60s
+
 
 # HERE IS WHERE TO INSERT CODE FOR THE CLOCK
-# THIS PART NEEDS TO BE DOUBLE CHECKED!!!
-#       notes: In general, set <parameter> will display more help for that parameter.
-#       clock_out is a bool value
-#       
-# turns on the CLOCKOUT pin
-# set clock_out true
 
 
 # arm trigger portion 
 # notes: J51-1   Trigger signal is on mini_exp1  (bladeRF  xA4/xA9,  J51,
 #   pin 1).
 
-# trigger J51-1 tx master
+#trigger J51-1 tx slave
 
 # this is stalled until the trigger is fired in the master terminal by:
 #       trigger J51-1 tx fire
-# tx start
+#tx start
 
 # Inform user how to fire trigger
 echo "  ---------------------------------------------------------------"
-echo "   Once slave.txt is in the other terminal,"
-echo "   run 'trigger J51-1 tx fire' to fire trigger."
+echo "   Ready. Fire the trigger on the master terminal."
 echo "  ---------------------------------------------------------------"
-echo ""
-
