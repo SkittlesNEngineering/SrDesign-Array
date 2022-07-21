@@ -1,4 +1,0 @@
-# list of cmd lines the put in to open testing script
-
-cd "C:\Users\m85st\Documents\SD2 Project\SrDesign-Array\Signal Gen"
-bladeRF-cli -s sdr_test.txt -i

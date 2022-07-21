@@ -7,7 +7,7 @@
 
 # -------------------------------------------------------------------
 # in interactive mode: open the correct SDR for leader_template
-open *:serial=72ebccb3ce0e4cd399c0123dab762cea
+#open *:serial=72ebccb3ce0e4cd399c0123dab762cea
 
 # set up device params for the binary complex sine signal
 
@@ -19,13 +19,10 @@ set samplerate tx 32M
 set bandwidth tx 2.5M
 
 # configure both tx channels with the same signal
-tx config channel=1,2 file=C:/SDR/leader_template.csv format=csv repeat=100000 timeout=60s 
+tx config channel=1,2 file=C:/SDR/leader_zero.csv format=csv repeat=10000000 timeout=60s 
 
-# HERE IS WHERE TO INSERT CODE FOR THE CLOCK
-# THIS PART NEEDS TO BE DOUBLE CHECKED!!!
-#       notes: In general, set <parameter> will display more help for that parameter.
-#       clock_out is a bool value
-#     
+# SYNCHRONIZATION
+set clock_out enable
 
 # turns on the CLOCKOUT pin
 #set clock_out true
@@ -39,13 +36,12 @@ tx config channel=1,2 file=C:/SDR/leader_template.csv format=csv repeat=100000 t
 
 # this is stalled until the trigger is fired in the leader_template terminal by:
 #       trigger J51-1 tx fire
-#tx start
 
 # Inform user how to fire trigger
 echo "  ---------------------------------------------------------------"
 echo "   Once slave.txt is in the other terminal,"
 #echo "   run 'trigger J51-1 tx fire' to fire trigger."
-echo "   run 'tx run' to fire."
+echo "   run 'tx start' to fire."
 echo "  ---------------------------------------------------------------"
 echo ""
 
