@@ -14,7 +14,7 @@ parser = argparse.ArgumentParser(\
              commands to the bladeRF
              SDRs to target the array
              beam at given angle.
-          ```````````````````````````
+          ---------------------------
          '''))
 
 # [-h] -ang ANGLE

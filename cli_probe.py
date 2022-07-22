@@ -13,7 +13,7 @@ parser = argparse.ArgumentParser(\
              Probe for devices,
              print results,
              then exit.
-          ````````````````````````
+          ------------------------
          '''))
 
 parser._action_groups.pop()

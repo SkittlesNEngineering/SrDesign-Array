@@ -12,7 +12,7 @@ parser = argparse.ArgumentParser(\
           =+==+==+==+==+==+==+==+==+=
              Enter interactive
              mode on bladeRF SDR.
-          ```````````````````````````
+          ---------------------------
          '''))
 
 parser._action_groups.pop()
