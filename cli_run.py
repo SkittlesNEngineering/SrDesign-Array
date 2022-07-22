@@ -21,33 +21,23 @@ parser = argparse.ArgumentParser(\
 # Required argument must be given or function will not run
 parser._action_groups.pop()
 required = parser.add_argument_group('required arguments')
-required.add_argument('angle',choices=[-20,-10,0,10,20], help="Target beam angle in degrees\n\n", type=int)
+required.add_argument('-agl','--angle', help="Target beam angle in degrees\n\n", type=int,required=True)
 
 args = parser.parse_args()
 
 # Run command starts the bladeRF with a precreated txt file of commands.
 # The txt file chosen corresponds to the chosen angle.
-# Target angle must be one of these [-20,-10,0,10,20]
 # If no angle is selected the user will be prompted to try again.
-    # Set str variable angle_txt to string for specific beam angle file
-angle=args.angle
-if angle == -20:
-    angle_txt = "ntwenty"
-elif angle == -10:
-    angle_txt = "nten"
-elif angle == 0:
-    angle_txt = "zero"
-elif angle == 10:
-    angle_txt = "ten"
-elif angle == 20:
-    angle_txt = "twenty"
+# Set str variable angle_str to string for specific beam angle file
+if args.angle:
+    angle_str=str(args.angle)
 
-print("Running bladeRF script files for {} degree beam angle...\n".format(angle))
+print("Running bladeRF script files for "+ angle_str +" degree beam angle...\n")
 
 # Create string for specific beam angle files
 # File for leader and follower must exist in this directory
-leader_file = "leader_" + angle_txt + ".txt"
-follower_file = "follower_" + angle_txt + ".txt"
+leader_file = "leader_" + angle_str + ".txt"
+follower_file = "follower_" + angle_str + ".txt"
 
 # Open leader and follower command prompts and execute bladeRF command to load selected files
 # Follower SDR will wait for trigger from leader command prompt
