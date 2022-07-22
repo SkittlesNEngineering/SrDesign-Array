@@ -2,8 +2,13 @@ import argparse
 from textwrap import dedent
 from subprocess import Popen
 
+from cli_interactive import usage_msg
+
 less_spacing = lambda prog: argparse.RawTextHelpFormatter(prog,
                   max_help_position=6)
+
+def usage_msg(name=None):                                                            
+    return '''ls [-h]'''
 
 parser = argparse.ArgumentParser(\
     formatter_class=less_spacing,
@@ -15,7 +20,7 @@ parser = argparse.ArgumentParser(\
              SDRs to target the array
              beam at given angle.
           ---------------------------
-         '''))
+         ''', usage=usage_msg()))
 
 # [-h] -ang ANGLE
 # Required argument must be given or function will not run
