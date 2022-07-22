@@ -19,26 +19,20 @@ set bandwidth tx 2.5M
 
 # Configure both tx channels with the signals in 4-column csv
 # set to 10,000,000 repeats to let the follower SDR work for as long as possible
-tx config channel=1,2 file=C:/SDR/leader_zero.csv format=csv repeat=10000000 timeout=60s
+tx config channel=1,2 file=C:/SDR/follower_zero.csv format=csv repeat=10000000 timeout=60s
 
-# HERE IS WHERE TO INSERT CODE FOR THE CLOCK
-# THIS PART NEEDS TO BE DOUBLE CHECKED!!!
-#       notes: In general, set <parameter> will display more help for that parameter.
-#       clock_out is a bool value
-#       
-# turns on the CLOCKOUT pin
-# set clock_out true
-
+# SYNCHRONIZATION
+set clock_out enable
 
 # arm trigger portion 
 # notes: J51-1   Trigger signal is on mini_exp1  (bladeRF  xA4/xA9,  J51,
 #   pin 1).
 
-# trigger J51-1 tx master
+trigger J51-1 tx master
 
 # this is stalled until the trigger is fired in the master terminal by:
 #       trigger J51-1 tx fire
-# tx start
+tx start
 
 # Inform user how to fire trigger
 echo "  ---------------------------------------------------------------"

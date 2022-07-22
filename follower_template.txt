@@ -34,13 +34,13 @@ set clock_sel external
 
 trigger J51-1 tx slave
 
+# run
+
 # this is stalled until the trigger is fired in the master terminal by:
 #       trigger J51-1 tx fire
-tx start
 
 # Inform user how to fire trigger
 echo "  ---------------------------------------------------------------"
 echo "   Ready. Fire the trigger on the master terminal."
 echo "  ---------------------------------------------------------------"
 
-tx wait
