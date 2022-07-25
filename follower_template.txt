@@ -5,23 +5,26 @@
 # in the master termainal, activate the trigger signal by:
 #       trigger J51-1 tx fire
 
+# @ 60s and 100,000 repeats, there are no errors @ 2:00 minutes - error occured around 2:30
+# @ 60s and 10,000,000 repeats, error happens @ 2:45
+# @ 60s and 1,000,000,000 repeats, the errors start at 15s
+
+
+
 # -------------------------------------------------------------------
 # in interactive mode: open the correct SDR for master
 open *:serial=3543e189dc7046c7a10b6adedc1afa3d
 
 # set up device params for the binary complex sine signal
 
-# frequency for testing
-set frequency tx 50M
-
-# set frequency tx 2.285G
+set frequency tx 2.285G
 set samplerate tx 32M
 set bandwidth tx 2.5M
 
 # configure both tx channels with the same signal
-tx config channel=1,2 file=C:/SDR/bin_signal.sc16q11 format=bin repeat=100 timeout=10s
+tx config channel=1,2 file=C:/SDR/leader_zero.csv format=csv repeat=10000000 timeout=60s 
 
-# HERE IS WHERE TO INSERT CODE FOR THE CLOCK
+# SYNCHRONIZATION
 # sets the SDR to accept an external clock thru the CLKIN pin
 set clock_sel external
 
@@ -31,13 +34,13 @@ set clock_sel external
 
 trigger J51-1 tx slave
 
+# run
+
 # this is stalled until the trigger is fired in the master terminal by:
 #       trigger J51-1 tx fire
-tx start
 
 # Inform user how to fire trigger
 echo "  ---------------------------------------------------------------"
 echo "   Ready. Fire the trigger on the master terminal."
 echo "  ---------------------------------------------------------------"
 
-tx wait

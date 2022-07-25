@@ -1,3 +1,20 @@
+# list of cmd lines the put in to open testing script
+
+cd "C:\SDR\SrDesign-Array"
+cd "C:\SDR\SrDesign-Array\Unused"
+
+bladeRF-cli -s leader_test.txt -i
+bladeRF-cli -s follower_test.txt -i
+
+
+bladeRF-cli -s sdr_test.txt -i
+
+bladeRF-cli -s leader_0.txt -i
+bladeRF-cli -s follower_0.txt -i
+
+trigger J51-1 tx fire
+
+
 # this is the file to run for the example loopback
 # set up device params for example
 

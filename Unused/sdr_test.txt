@@ -6,23 +6,20 @@
 
 # set up device params for the binary complex sine signal
 
-set frequency tx 50M
-set samplerate tx 30M
-set bandwidth tx 2.5M
+set frequency 2.285G
+set samplerate 32M
+set bandwidth 2.5M
 # set loopback firmware
 
 # configure tx and rx channels
-# tx config channel=1,2 file=C:/SDR/bin_signal.sc16q11 format=bin timeout=10s repeat=100
-# tx config channel=1 file=C:/SDR/zero_element1.sc16q11 format=bin timeout=30s repeat=1000
-
-
-#tx config channel=1,2 file="C:\Users\m85st\Documents\SD2 Project\SrDesign-Array\Signal Gen\leader.csv" format=csv timeout=60s repeat=10000
-#tx config channel=1,2 file=C:/SDR/leader.csv format=csv timeout=60s repeat=10000
-tx config channel=1,2 file="D:\Users\mejo1\OneDrive\Documents\GitHub\SrDesign-Array\Signal Gen\leader.csv" format=csv timeout=60s repeat=10000
+tx config channel=1,2 file=C:/SDR/leader_0.csv format=csv timeout=60s
+rx config channel=1,2 file=C:/SDR/rx_leader_0.csv format=csv n=1M timeout=60s samples=65536
 
 # start running the channels
-# tx start
+rx start
+tx start
+
 
 # run "rx start; tx start" in the console to run both at the same time (idk now)
 
-echo " Enter 'tx start' to begin the tx for channels 1 and 2."
+# echo " Enter 'tx start' to begin the tx for channels 1 and 2."
