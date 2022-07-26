@@ -9,6 +9,11 @@
 # @ 60s and 10,000,000 repeats, error happens @ 2:45
 # @ 60s and 1,000,000,000 repeats, the errors start at 15s
 
+# samples @ 16k are too big, dies around 3 minutes
+# samples @ 4k are small enough, lasts longer than 3 minutes
+
+
+
 
 
 # -------------------------------------------------------------------
@@ -23,6 +28,9 @@ set bandwidth tx 2.5M
 
 # configure both tx channels with the same signal
 tx config channel=1,2 file=C:/SDR/leader_zero.csv format=csv repeat=10000000 timeout=60s 
+
+# change the sample size to make up for shitty SDR
+tx config samples=10k
 
 # SYNCHRONIZATION
 # sets the SDR to accept an external clock thru the CLKIN pin

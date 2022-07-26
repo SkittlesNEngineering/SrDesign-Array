@@ -21,6 +21,9 @@ set bandwidth tx 2.5M
 # configure both tx channels with the same signal
 tx config channel=1,2 file=C:/SDR/leader_zero.csv format=csv repeat=10000000 timeout=60s 
 
+# change the sample size to make up for shitty SDR
+tx config samples=10k
+
 # SYNCHRONIZATION
 set clock_out enable
 

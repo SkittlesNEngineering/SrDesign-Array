@@ -12,12 +12,21 @@ set bandwidth 2.5M
 # set loopback firmware
 
 # configure tx and rx channels
-tx config channel=1,2 file=C:/SDR/leader_0.csv format=csv timeout=60s
-rx config channel=1,2 file=C:/SDR/rx_leader_0.csv format=csv n=1M timeout=60s samples=65536
+#tx config channel=1,2 file=C:/SDR/leader_0.csv format=csv timeout=60s repeat=100000
+#tx config channel=1,2 file=C:/SDR/leader_-10.csv format=csv timeout=60s repeat=100000
+#tx config channel=1,2 file=C:/SDR/follower_5.csv format=csv timeout=60s repeat=100000
+tx config channel=1,2 file=C:/SDR/follower_30.csv format=csv timeout=60s repeat=100000
+#tx config channel=1,2 file=C:/SDR/leader_-30.csv format=csv timeout=60s repeat=10000
+
+
+#rx config channel=1,2 file=C:/SDR/rx_leader_0.csv format=csv n=1M timeout=60s samples=65536
+
+# change the sample size to make up for shitty SDR
+tx config samples=10k
 
 # start running the channels
-rx start
-tx start
+#rx start
+#tx start
 
 
 # run "rx start; tx start" in the console to run both at the same time (idk now)
