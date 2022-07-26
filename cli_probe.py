@@ -2,8 +2,6 @@ import argparse
 from textwrap import dedent
 from os import system
 
-from cli_interactive import usage_msg
-
 less_spacing = lambda prog: argparse.RawTextHelpFormatter(prog,
                   max_help_position=6)
 
@@ -19,7 +17,7 @@ parser = argparse.ArgumentParser(\
              print results,
              then exit.
           ------------------------
-         ''', usage=usage_msg()))
+         '''), usage=usage_msg())
 
 parser._action_groups.pop()
 help = parser.add_argument_group('help')
