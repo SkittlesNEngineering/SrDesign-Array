@@ -16,7 +16,7 @@ parser = argparse.ArgumentParser(\
              Enter interactive
              mode on bladeRF SDR.
           ---------------------------
-         ''', usage=usage_msg()))
+         '''), usage=usage_msg())
 
 parser._action_groups.pop()
 help = parser.add_argument_group('help')

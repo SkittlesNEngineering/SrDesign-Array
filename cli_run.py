@@ -32,8 +32,8 @@ args = parser.parse_args()
 # The txt file chosen corresponds to the chosen angle.
 # If no angle is selected the user will be prompted to try again.
 # Set str variable angle_str to string for specific beam angle file
-if args.angle:
-    angle_str=str(args.angle)
+
+angle_str=str(args.angle)
 
 print("Running bladeRF script files for "+ angle_str +" degree beam angle...\n")
 
