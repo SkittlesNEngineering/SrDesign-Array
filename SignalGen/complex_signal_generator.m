@@ -6,6 +6,7 @@ function complex_signal_generator()
     % Function to generate a complex sinusoid signal's I/Q samples
     
     clear; close all; clc;
+    phase_offset = 2*pi;      % phase offset is in radians
     
     %% Get desired beam angle
     % Get user input for the desired beam angle of the signal
@@ -57,8 +58,9 @@ function complex_signal_generator()
     % Element phase shifts
     phi1 = phi*0;
     phi2 = phi*1;
-    phi3 = phi*2;
-    phi4 = phi*3;
+    % Change phase_offset to adjust for clk delay
+    phi3 = phi*2+phase_offset;
+    phi4 = phi*3+phase_offset;
     
     % Generate a vector "t" which represents time, in units of samples.
     % This starts at t=0, and creates n samples in steps of 1/SAMPLE_RATE

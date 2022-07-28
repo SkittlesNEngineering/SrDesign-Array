@@ -23,7 +23,8 @@ set bandwidth tx 2.5M
 
 # Configure both tx channels with the signals in 4-column csv
 # set to 10,000,000 repeats to let the follower SDR work for as long as possible
-tx config channel=1,2 file=C:/SDR/SrDesign-Array/follower_0.csv format=csv repeat=10000000 timeout=60s
+#tx config channel=1,2 file=C:/SDR/SrDesign-Array/leader_0.csv format=csv repeat=10000000 timeout=60s
+tx config channel=1,2 file=C:/SDR/SrDesign-Array/SignalGen/follower_0.csv format=csv repeat=10000000 timeout=60s
 
 # change the sample size to make up for shitty SDR
 tx config samples=10k
