@@ -1,6 +1,7 @@
 import argparse
 from textwrap import dedent
 from subprocess import Popen
+from time import sleep
 
 less_spacing = lambda prog: argparse.RawTextHelpFormatter(prog,
                   max_help_position=6)
@@ -46,6 +47,8 @@ follower_file = "follower_" + angle_str + ".txt"
 # Follower SDR will wait for trigger from leader command prompt
 # Command prompt opener string is specific for Microsoft OS
 process1 = Popen(['start', '/wait', 'cmd', '/k', "bladeRF-cli -s " + leader_file + " -i"], shell = True)
+# Wait for SDR 1 to load.
+sleep(2)
 process2 = Popen(['start', '/wait', 'cmd', '/k', "bladeRF-cli -s " + follower_file + " -i"], shell = True)
 process1.wait()
 process2.wait()
